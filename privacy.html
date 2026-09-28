@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Policy — Shubh Kothari</title>
+<meta name="theme-color" content="#000000"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+/*-------------------------------------------
+  RESET & TOKENS
+-------------------------------------------*/
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#000000;--cyan:#5ce1e6;--blue:#3b82f6;--purple:#8b5cf6;
+  --amber:#f0a030;--text:#e8e4e0;--dim:rgba(232,228,224,.45);
+  --border:rgba(92,225,230,.08);
+  --fd:'Syne',sans-serif;--fh:'Space Grotesk',sans-serif;
+  --fb:'Inter',sans-serif;--fm:'JetBrains Mono',monospace;
+  --px:clamp(1.5rem,6vw,5rem);
+}
+html{overflow-x:clip}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);overflow-x:clip;user-select:none;-webkit-user-select:none;}
+@media(pointer:fine){body{cursor:none}}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--cyan);border-radius:2px}
+
+/*-------------------------------------------
+  NOISE GRAIN
+-------------------------------------------*/
+body::after{
+  content:'';position:fixed;inset:0;z-index:10000;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.03;
+}
+
+/*-------------------------------------------
+  CUSTOM CURSOR
+-------------------------------------------*/
+#cursor{position:fixed;width:8px;height:8px;background:var(--cyan);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .2s,height .2s,background .2s;display:none}
+@media(pointer:fine){#cursor{display:block}}
+body.c-hover #cursor{width:44px;height:44px;background:rgba(92,225,230,.12);backdrop-filter:blur(4px)}
+
+/*-------------------------------------------
+  NAVIGATION
+-------------------------------------------*/
+#nav-logo{position:fixed;top:2rem;left:var(--px);z-index:7000;font-family:var(--fd);font-size:1.8rem;font-weight:700;color:var(--text);cursor:pointer;transition:color .3s;-webkit-tap-highlight-color:transparent;text-decoration:none}
+#nav-logo:hover{color:var(--cyan)}
+@media(max-width:768px){#nav-logo{top:1.5rem;left:var(--px)}}
+
+/*-------------------------------------------
+  LEGAL PAGE SPECIFIC STYLES
+-------------------------------------------*/
+.legal-hero {
+  position: relative;
+  padding: clamp(8rem, 15vw, 12rem) var(--px) 4rem;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.lh-content {
+  position: relative;
+  z-index: 2;
+}
+.sl {
+  font-family: var(--fm);
+  font-size: .6rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.sl::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: var(--cyan);
+}
+.sh {
+  font-family: var(--fd);
+  font-size: clamp(2rem, 4.5vw, 4.2rem);
+  font-weight: 800;
+  line-height: .95;
+  margin-bottom: 1.5rem;
+}
+.legal-body {
+  padding: 4rem var(--px) clamp(6rem, 15vw, 10rem);
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.legal-date {
+  font-family: var(--fm);
+  font-size: 0.75rem;
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+  margin-bottom: 4rem;
+  text-transform: uppercase;
+}
+.legal-sec {
+  margin-bottom: 3.5rem;
+}
+.legal-h {
+  font-family: var(--fh);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.legal-p {
+  color: var(--dim);
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
+  font-weight: 300;
+}
+.legal-p strong {
+  color: var(--text);
+  font-weight: 500;
+}
+.legal-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+.legal-list li {
+  color: var(--dim);
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+  font-weight: 300;
+}
+.legal-list li::before {
+  content: '\2192';
+  position: absolute;
+  left: 0;
+  color: var(--cyan);
+  font-family: var(--fm);
+}
+.legal-list li strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+
+  FOOTER
+-------------------------------------------*/
+footer{padding:clamp(1.5rem,3vw,2rem) var(--px);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;position:relative;z-index:1}
+.f-logo{font-family:var(--fd);font-size:1.3rem;font-weight:700;color:var(--cyan)}
+.f-text{font-size:.7rem;color:var(--dim);letter-spacing:.05em}
+
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+
+<!-- NAV -->
+<a href="index.html" id="nav-logo">SK</a>
+
+<!-- HEADER -->
+<section class="legal-hero">
+  <div class="lh-content">
+    <div class="sl">Legal Information</div>
+    <h1 class="sh">Privacy<br><span class="accent" style="color:var(--cyan)">Policy.</span></h1>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<section class="legal-body">
+  <div class="legal-date">LAST UPDATED: <strong>MAY 2026</strong></div>
+
+  <div class="legal-sec">
+    <h2 class="legal-h">01. Overview</h2>
+    <p class="legal-p">This Privacy Policy describes how <strong>Shubh Kothari</strong> ("I", "me", or "my") collects, uses, and protects your information when you visit my personal portfolio website and interact with my digital services.</p>
+    <p class="legal-p">As a freelance web developer and creative technologist, I respect your privacy and am committed to maintaining a secure digital environment. This site operates with minimalism in mind, collecting only what is strictly necessary to provide a high-end experience and facilitate communication.</p>
+  </div>
+
+  <div class="legal-sec">
+    <h2 class="legal-h">02. Data Collection</h2>
+    <p class="legal-p">I intentionally limit the data collected through this digital experience. Information is generally categorized into two types:</p>
+    <ul class="legal-list">
+      <li><strong>Information you provide directly:</strong> When you reach out via email (shubhkothari.dev@gmail.com) or inquire about freelance services, I collect your name, email address, and the contents of your message.</li>
+      <li><strong>Information collected automatically:</strong> To ensure the smooth running of WebGL animations and GSAP interactions, basic, non-personally identifiable technical data (such as browser type, device resolution, and general geographic region) may be temporarily processed by standard analytics or hosting providers.</li>
+    </ul>
+  </div>
+
+  <div class="legal-sec">
+    <h2 class="legal-h">03. Use of Information</h2>
+    <p class="legal-p">Any information collected is used exclusively for professional purposes:</p>
+    <ul class="legal-list">
+      <li>To respond to your inquiries regarding collaborations, projects, or internships.</li>
+      <li>To optimize website performance and ensure the complex front-end architecture loads correctly across different devices.</li>
+      <li>To maintain the security and integrity of this digital space.</li>
+    </ul>
+    <p class="legal-p"><strong>I do not sell, rent, or trade your personal information to any third parties under any circumstances.</strong></p>
+  </div>
+
+  <div class="legal-sec">
+    <h2 class="legal-h">04. Third-Party Integrations</h2>
+    <p class="legal-p">This portfolio utilizes modern web technologies that may involve third-party services. These include standard content delivery networks (CDNs) to load libraries like <em>Three.js</em> and <em>GSAP</em>, as well as Google Fonts. These providers may receive your IP address as part of the standard HTTP request process necessary to deliver these assets to your browser.</p>
+  </div>
+
+  <div class="legal-sec">
+    <h2 class="legal-h">05. Security & Retention</h2>
+    <p class="legal-p">I implement reasonable security measures to protect any professional correspondence. Client inquiries and related data are retained only for as long as necessary to fulfill the purposes outlined in this policy or as required by standard business practices.</p>
+  </div>
+
+  <div class="legal-sec">
+    <h2 class="legal-h">06. Contact Protocol</h2>
+    <p class="legal-p">If you have any questions or concerns regarding this policy, the technical infrastructure of this site, or how your data is handled, please initialize a secure channel via email.</p>
+    <p class="legal-p">Ping: <a href="mailto:shubhkothari.dev@gmail.com" style="color:var(--cyan);text-decoration:none">shubhkothari.dev@gmail.com</a></p>
+  </div>
+
+  
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">SK</div>
+  <div class="f-text">Designed &amp; Built by Shubh Kothari · 2026</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+<script>
+/* --- SCROLL SMOOTHING --- */
+const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), direction: 'vertical', smooth: true });
+function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+requestAnimationFrame(raf);
+
+/* --- CUSTOM CURSOR --- */
+const cursor = document.getElementById('cursor');
+let cx = 0, cy = 0;
+document.addEventListener('mousemove', e => {
+  cx = e.clientX; cy = e.clientY;
+  gsap.to(cursor, { x: cx, y: cy, duration: 0.15, ease: 'power2.out' });
+});
+document.querySelectorAll('a,button,.mb').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('c-hover'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('c-hover'));
+});
+</script>
+</body>
+</html>
+
